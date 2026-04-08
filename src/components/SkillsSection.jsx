@@ -8,7 +8,8 @@ import {
   FaCode,
   FaCodeBranch
 } from "react-icons/fa";
-import { SiDotnet, SiSharp, SiRabbitmq } from "react-icons/si";
+import { motion, useReducedMotion } from "framer-motion";
+import { SiDotnet, SiPostgresql, SiPostman, SiRabbitmq, SiSharp } from "react-icons/si";
 import { TbApi, TbDatabase } from "react-icons/tb";
 import { Reveal } from "./Reveal";
 
@@ -22,17 +23,26 @@ const iconMap = {
   api: TbApi,
   rabbitmq: SiRabbitmq,
   sqlserver: TbDatabase,
+  postgresql: SiPostgresql,
   git: FaGitAlt,
   docker: FaDocker,
   azuredevops: FaCodeBranch,
+  postman: SiPostman,
   default: FaCode
 };
 
 export function SkillsSection({ groups }) {
+  const prefersReducedMotion = useReducedMotion();
+
   return (
     <div className="skills-grid">
       {groups.map((group, index) => (
-        <Reveal key={group.title} className="skill-group" delay={index * 0.08}>
+        <Reveal
+          key={group.title}
+          className="skill-group"
+          delay={index * 0.08}
+          whileHover={prefersReducedMotion ? undefined : { y: -7, scale: 1.01 }}
+        >
           <div className="skill-group-header">
             <p className="skill-group-label">{group.title}</p>
           </div>
@@ -42,12 +52,17 @@ export function SkillsSection({ groups }) {
               const Icon = iconMap[skill.icon] ?? iconMap.default;
 
               return (
-                <article key={skill.name} className="skill-item">
+                <motion.article
+                  key={skill.name}
+                  className="skill-item"
+                  whileHover={prefersReducedMotion ? undefined : { y: -3, scale: 1.01 }}
+                  transition={{ duration: 0.22, ease: [0.22, 1, 0.36, 1] }}
+                >
                   <span className="skill-icon" style={{ color: skill.color }} aria-hidden="true">
                     <Icon />
                   </span>
                   <span className="skill-name">{skill.name}</span>
-                </article>
+                </motion.article>
               );
             })}
           </div>

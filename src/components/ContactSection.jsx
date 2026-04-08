@@ -1,3 +1,4 @@
+import { motion, useReducedMotion } from "framer-motion";
 import { Reveal } from "./Reveal";
 import { FaGithub, FaLinkedinIn, FaEnvelope } from "react-icons/fa";
 
@@ -8,17 +9,21 @@ const iconMap = {
 };
 
 export function ContactSection({ contact }) {
+  const prefersReducedMotion = useReducedMotion();
+
   return (
-    <Reveal className="contact-panel">
+    <Reveal className="contact-panel" whileHover={prefersReducedMotion ? undefined : { y: -6, scale: 1.008 }}>
       <div className="contact-links">
         {contact.links.map((item, index) => (
-          <a
+          <motion.a
             key={item.label}
             className="contact-link"
             href={item.href}
             target={item.href.startsWith("http") ? "_blank" : undefined}
             rel={item.href.startsWith("http") ? "noreferrer" : undefined}
-            style={{ animationDelay: `${index * 0.06}s` }}
+            whileHover={prefersReducedMotion ? undefined : { y: -4, scale: 1.012 }}
+            whileTap={prefersReducedMotion ? undefined : { scale: 0.995 }}
+            transition={{ duration: 0.24, ease: [0.22, 1, 0.36, 1], delay: index * 0.03 }}
           >
             <span className="contact-link-icon" aria-hidden="true">
               {(() => {
@@ -27,7 +32,7 @@ export function ContactSection({ contact }) {
               })()}
             </span>
             <span className="contact-link-label">{item.label}</span>
-          </a>
+          </motion.a>
         ))}
       </div>
     </Reveal>

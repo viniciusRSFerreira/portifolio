@@ -8,6 +8,7 @@ import { SkillsSection } from "./components/SkillsSection";
 import { ProjectsSection } from "./components/ProjectsSection";
 import { ContactSection } from "./components/ContactSection";
 import { Footer } from "./components/Footer";
+import { RevealSection } from "./components/Reveal";
 
 const sectionIds = ["inicio", "sobre", "habilidades", "projetos", "contato"];
 
@@ -63,49 +64,57 @@ function App() {
       <main>
         <HeroSection hero={portfolioData.hero} />
 
-        <section className="section" id="sobre">
+        <RevealSection className="section" id="sobre">
           <div className="container">
-            <SectionHeading
-              eyebrow={sections.about.eyebrow}
-              title={sections.about.title}
-              description={sections.about.description}
-            />
-            <AboutSection items={portfolioData.about} />
+            <div className="section-shell">
+              <SectionHeading
+                eyebrow={sections.about.eyebrow}
+                title={sections.about.title}
+                description={sections.about.description}
+              />
+              <AboutSection items={portfolioData.about} />
+            </div>
           </div>
-        </section>
+        </RevealSection>
 
-        <section className="section" id="habilidades">
+        <RevealSection className="section" id="habilidades" delay={0.02}>
           <div className="container">
-            <SectionHeading
-              eyebrow={sections.skills.eyebrow}
-              title={sections.skills.title}
-              description={sections.skills.description}
-            />
-            <SkillsSection groups={portfolioData.skillGroups} />
+            <div className="section-shell">
+              <SectionHeading
+                eyebrow={sections.skills.eyebrow}
+                title={sections.skills.title}
+                description={sections.skills.description}
+              />
+              <SkillsSection groups={portfolioData.skillGroups} />
+            </div>
           </div>
-        </section>
+        </RevealSection>
 
-        <section className="section" id="projetos">
+        <RevealSection className="section" id="projetos" delay={0.02}>
           <div className="container">
-            <SectionHeading
-              eyebrow={sections.projects.eyebrow}
-              title={sections.projects.title}
-              description={sections.projects.description}
-            />
-            <ProjectsSection projects={portfolioData.projects} />
+            <div className="section-shell">
+              <SectionHeading
+                eyebrow={sections.projects.eyebrow}
+                title={sections.projects.title}
+                description={sections.projects.description}
+              />
+              <ProjectsSection projects={portfolioData.projects} />
+            </div>
           </div>
-        </section>
+        </RevealSection>
 
-        <section className="section" id="contato">
+        <RevealSection className="section" id="contato" delay={0.02}>
           <div className="container">
-            <SectionHeading
-              eyebrow={sections.contact.eyebrow}
-              title={sections.contact.title}
-              description={sections.contact.description}
-            />
-            <ContactSection contact={portfolioData.contact} />
+            <div className="section-shell">
+              <SectionHeading
+                eyebrow={sections.contact.eyebrow}
+                title={sections.contact.title}
+                description={sections.contact.description}
+              />
+              <ContactSection contact={portfolioData.contact} />
+            </div>
           </div>
-        </section>
+        </RevealSection>
       </main>
 
       <Footer />

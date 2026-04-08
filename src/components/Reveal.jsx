@@ -1,48 +1,65 @@
-import { useEffect, useRef, useState } from "react";
+import { motion, useReducedMotion } from "framer-motion";
 
-export function Reveal({ children, className = "", delay = 0 }) {
-  const ref = useRef(null);
-  const [isVisible, setIsVisible] = useState(false);
+const baseTransition = {
+  duration: 0.8,
+  ease: [0.22, 1, 0.36, 1]
+};
 
-  useEffect(() => {
-    if (!ref.current) {
-      return undefined;
-    }
+const baseVariants = {
+  hidden: {
+    opacity: 0,
+    y: 20
+  },
+  visible: {
+    opacity: 1,
+    y: 0
+  }
+};
 
-    const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+export function Reveal({ children, className = "", delay = 0, amount = 0.18, ...motionProps }) {
+  const prefersReducedMotion = useReducedMotion();
 
-    if (mediaQuery.matches) {
-      setIsVisible(true);
-      return undefined;
-    }
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setIsVisible(true);
-            observer.disconnect();
-          }
-        });
-      },
-      {
-        threshold: 0.14,
-        rootMargin: "0px 0px -48px 0px"
-      }
-    );
-
-    observer.observe(ref.current);
-
-    return () => observer.disconnect();
-  }, []);
+  if (prefersReducedMotion) {
+    return <div className={className}>{children}</div>;
+  }
 
   return (
-    <div
-      ref={ref}
-      className={`reveal ${isVisible ? "is-visible" : ""} ${className}`.trim()}
-      style={{ transitionDelay: `${delay}s` }}
+    <motion.div
+      className={className}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount }}
+      variants={baseVariants}
+      transition={{ ...baseTransition, delay }}
+      {...motionProps}
     >
       {children}
-    </div>
+    </motion.div>
+  );
+}
+
+export function RevealSection({ children, className = "", id, delay = 0 }) {
+  const prefersReducedMotion = useReducedMotion();
+
+  if (prefersReducedMotion) {
+    return (
+      <section className={className} id={id}>
+        {children}
+      </section>
+    );
+  }
+
+  return (
+    <motion.section
+      className={className}
+      id={id}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.16 }}
+      variants={baseVariants}
+      transition={{ ...baseTransition, delay }}
+    >
+      {children}
+    </motion.section>
   );
 }

@@ -1,6 +1,6 @@
 export const portfolioData = {
   navigation: [
-    { label: "Início", href: "#inicio" },
+    { label: "Inicio", href: "#inicio" },
     { label: "Sobre", href: "#sobre" },
     { label: "Habilidades", href: "#habilidades" },
     { label: "Projetos", href: "#projetos" },
@@ -10,49 +10,49 @@ export const portfolioData = {
     name: "Vinicius Ferreira",
     role: "Full Stack Developer",
     description:
-      "Desenvolvo aplicações web com foco em performance, clareza de arquitetura e boas práticas."
+      "Desenvolvo aplicacoes web com foco em clareza, performance e boas praticas."
   },
   sections: {
     about: {
       eyebrow: "Sobre mim",
-      title: "Formação, stack e foco em desenvolvimento full stack.",
+      title: "Perfil tecnico com foco em desenvolvimento full stack.",
       description:
-        "Sou estudante de Análise e Desenvolvimento de Sistemas, com foco em desenvolvimento full stack."
+        "Estudante de Analise e Desenvolvimento de Sistemas, com atuacao em aplicacoes web e APIs REST, combinando visao de front-end, back-end e organizacao tecnica."
     },
     skills: {
       eyebrow: "Skills",
-      title: "Stack organizada para construir aplicações completas.",
+      title: "Stack organizada para construir aplicacoes completas.",
       description:
-        "Tecnologias distribuídas entre interface, backend, dados e ferramentas de apoio para desenvolvimento moderno e escalável."
+        "Tecnologias distribuidas entre interface, backend, dados e ferramentas de apoio para desenvolvimento moderno e escalavel."
     },
     projects: {
       eyebrow: "Projetos",
-      title: "Projetos com foco em clareza, estrutura e valor técnico.",
+      title: "Projetos com foco em clareza, estrutura e valor tecnico.",
       description:
-        "Seleção de trabalhos voltados à construção de interfaces, APIs e automações com abordagem profissional e preocupação real com manutenção."
+        "Selecao de trabalhos voltados a construcao de interfaces, APIs e automacoes com abordagem profissional e preocupacao real com manutencao."
     },
     contact: {
       eyebrow: "Contato",
-      title: "Disponível para conexões profissionais e novas oportunidades.",
+      title: "Disponivel para conexoes profissionais e novas oportunidades.",
       description:
-        "Meus canais de contato estão disponíveis abaixo para conexões profissionais e oportunidades."
+        "Meus canais de contato estao disponiveis abaixo para conexoes profissionais e oportunidades."
     }
   },
   about: [
     {
-      title: "Experiência técnica",
+      title: "Formacao e atuacao",
       text:
-        "Tenho experiência com C#, .NET e construção de APIs REST, além de atuar no front-end com React, HTML, CSS e JavaScript."
+        "Sou estudante de Analise e Desenvolvimento de Sistemas, com atuacao em desenvolvimento full stack e experiencia pratica na construcao de aplicacoes web e APIs REST."
     },
     {
-      title: "Ferramentas e práticas",
+      title: "Stack principal",
       text:
-        "Também possuo conhecimento em SQL Server, Git, Docker e boas práticas de desenvolvimento."
+        "C#, .NET, React, HTML, CSS e JavaScript, alem de SQL Server, Git e Docker aplicados ao desenvolvimento, versionamento e organizacao do ambiente."
     },
     {
-      title: "Direção profissional",
+      title: "Direcao tecnica",
       text:
-        "Busco desenvolver soluções bem estruturadas, com código limpo e foco em evolução contínua."
+        "Meu foco esta em codigo limpo, organizacao da solucao, boas praticas de desenvolvimento e evolucao continua da base tecnica."
     }
   ],
   skillGroups: [
@@ -76,14 +76,18 @@ export const portfolioData = {
     },
     {
       title: "Banco de dados",
-      skills: [{ name: "SQL Server", icon: "sqlserver", color: "#c7d2e5" }]
+      skills: [
+        { name: "SQL Server", icon: "sqlserver", color: "#c7d2e5" },
+        { name: "PostgreSQL", icon: "postgresql", color: "#336791" }
+      ]
     },
     {
       title: "Ferramentas",
       skills: [
         { name: "Git", icon: "git", color: "#f05032" },
         { name: "Docker", icon: "docker", color: "#2496ed" },
-        { name: "Azure DevOps", icon: "azuredevops", color: "#0078d4" }
+        { name: "Azure DevOps", icon: "azuredevops", color: "#0078d4" },
+        { name: "Postman", icon: "postman", color: "#ff6c37" }
       ]
     }
   ],
@@ -91,7 +95,7 @@ export const portfolioData = {
     {
       name: "StoreManager",
       description:
-        "Sistema CRUD para gerenciamento de informações com foco em organização de fluxo, clareza de interface e usabilidade para operações do dia a dia.",
+        "Sistema CRUD desenvolvido em C# e .NET para gestao de dados, com integracao ao SQL Server, organizacao das regras de negocio e operacoes de cadastro, edicao e consulta.",
       stack: ["C#", ".NET", "SQL Server"],
       github: "#",
       demo: "#"
@@ -99,7 +103,7 @@ export const portfolioData = {
     {
       name: "API de Calculadora",
       description:
-        "API criada para estudo de endpoints, organização de backend e documentação de serviços com respostas previsíveis e estrutura limpa.",
+        "API REST em .NET para operacoes aritmeticas, estruturada com endpoints objetivos, respostas previsiveis e documentacao via Swagger para teste e consumo do servico.",
       stack: [".NET", "Swagger", "REST"],
       github: "#",
       demo: "#"
@@ -107,8 +111,8 @@ export const portfolioData = {
     {
       name: "Crawler de Vagas",
       description:
-        "Projeto voltado à coleta e organização de vagas de tecnologia por automação, facilitando análise de dados e monitoramento de oportunidades.",
-      stack: ["Automação", "Coleta de Dados", "Processamento"],
+        "Crawler para coleta automatizada de vagas de tecnologia, com extracao, organizacao e processamento dos dados para monitoramento de oportunidades e analise estruturada das informacoes capturadas.",
+      stack: ["Automacao", "Coleta de Dados", "Processamento"],
       github: "#",
       demo: "#"
     }
