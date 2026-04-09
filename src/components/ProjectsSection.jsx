@@ -26,9 +26,6 @@ export function ProjectsSection({ projects }) {
             <a className="button button-secondary" href={project.github} target="_blank" rel="noreferrer">
               GitHub
             </a>
-            <a className="button button-ghost" href={project.demo} target="_blank" rel="noreferrer">
-              Demo
-            </a>
           </div>
         </Reveal>
       ))}
